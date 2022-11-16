@@ -20,7 +20,7 @@
       <td>{{ $word->word }}</td>
       <td>{{ $word->meaning }}</td>
       <td>
-        <a class="btn btn-primary" href="#">Ver detalhes</a>
+        <a class="btn btn-primary" href="{{ route('words.show', $word) }}">Ver detalhes</a>
         <form action="#" method="POST" style="display: inline;">
           @method('DELETE')
           @csrf
