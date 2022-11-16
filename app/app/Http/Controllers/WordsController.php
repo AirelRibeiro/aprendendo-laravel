@@ -68,7 +68,11 @@ class WordsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $word = Word::find($id);
+
+        return view('words.edit', [
+            'word' => $word
+        ]);
     }
 
     /**
@@ -80,7 +84,15 @@ class WordsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $word = Word::find($id);
+
+        $word->update([
+            'meaning' => $request->meaning,
+            'description' => $request->description,
+            'aplication' => $request->aplication
+        ]);
+
+        return redirect('/words');
     }
 
     /**
