@@ -11,7 +11,13 @@
 </head>
 
 <body>
-  <div class="container">
+  <nav class="navbar ps-5 pt-3 bg-dark bg-gradient bg-opacity-75">
+    <div class="container-fluid justify-content-start">
+      <a class="btn btn-outline-light me-2" href="/">Aplicação Laravel</a>
+      <a class="btn btn-sm btn-outline-success" href="/words">Palavras</a>
+    </div>
+  </nav>
+  <div class="container bg-white pt-3">
     @yield('content')
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
