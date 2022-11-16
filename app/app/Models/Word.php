@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Word extends Model
 {
+
+    protected $fillable = ['word', 'meaning', 'description', 'aplication'];
+
     use HasFactory;
 }
