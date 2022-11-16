@@ -1,3 +1,24 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Word;
+use Illuminate\Http\Request;
+
+class WordsController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $words = Word::get();
+
+        return view('words.index', [
+            'words' => $words
+        ]);
     }
 
     /**
