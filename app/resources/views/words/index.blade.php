@@ -21,10 +21,10 @@
       <td>{{ $word->meaning }}</td>
       <td>
         <a class="btn btn-primary" href="{{ route('words.show', $word) }}">Ver detalhes</a>
-        <form action="#" method="POST" style="display: inline;">
+        <form action="{{ route('words.destroy', $word) }}" method="POST" style="display: inline;">
           @method('DELETE')
           @csrf
-          <button class="btn btn-danger" type="submit" onclick="return confirm('Tem certeza que deseja apagar?')">Apagar</button>
+          <button class="btn btn-danger" type="submit" onclick="return confirm('Confirme se você pretende excluir essa palavra!')">Excluir</button>
         </form>
       </td>
     </tr>
@@ -32,6 +32,6 @@
   </tbody>
 </table>
 <div class="d-grid gap-2 col-6 mx-auto">
-  <a class="btn btn-success" href="#">Incluir nova palavra</a>
+  <a class="btn btn-success" href="{{ route('words.create') }}">Incluir nova palavra</a>
 </div>
 @endsection
