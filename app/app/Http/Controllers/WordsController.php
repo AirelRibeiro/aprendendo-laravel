@@ -54,9 +54,12 @@ class WordsController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $word = Word::find($id);
 
+        return view('words.show', [
+            'word' => $word
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
