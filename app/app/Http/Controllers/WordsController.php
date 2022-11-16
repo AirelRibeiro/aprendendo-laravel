@@ -28,7 +28,7 @@ class WordsController extends Controller
      */
     public function create()
     {
-        //
+        return view('words.create');
     }
 
     /**
@@ -39,7 +39,11 @@ class WordsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request->except('_token');
+
+        Word::create($dados);
+
+        return redirect('/words');
     }
 
     /**
