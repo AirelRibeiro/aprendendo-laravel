@@ -103,6 +103,10 @@ class WordsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $word = Word::find($id);
+
+        $word->delete();
+
+        return redirect('/words');
     }
 }
