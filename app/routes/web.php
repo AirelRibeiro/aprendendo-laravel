@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::resource('words', WordsController::class);
+Route::get('/register', [RegisterController::class, 'create'])->name('register.form');
+Route::post('/register', [RegisterController::class, 'store'])->name('register');
+
