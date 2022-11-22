@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', HomeController::class)->name('home');
+    Route::resource('words', WordsController::class);
+});
+
 Route::get('/', function () {
     return view('app');
 });
