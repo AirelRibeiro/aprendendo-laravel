@@ -1,5 +1,9 @@
 <!doctype html>
 <html lang="en">
+<!--
+  If e dropdown construído a partir de código do curso de autenticação da treinaweb:
+  https://github.com/treinaweb/treinaweb-laravel-autenticacao-autorizacao
+-->
 
 <head>
   <meta charset="utf-8">
@@ -11,11 +15,30 @@
 </head>
 
 <body>
-  <nav class="navbar ps-5 pt-3 bg-dark bg-gradient bg-opacity-75">
+  <nav class="d-flex justify-content-between p-3 bg-dark bg-gradient bg-opacity-75">
     <div class="container-fluid justify-content-start">
       <a class="btn btn-outline-light me-2" href="/">Aplicação Laravel</a>
       <a class="btn btn-sm btn-outline-success" href="/words">Palavras</a>
     </div>
+    @if (auth()->check())
+    <div class="dropdown">
+      <button class="btn btn-outline-light me-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ auth()->user()->name }}
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+            Logout
+          </a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none">
+            @csrf
+          </form>
+        </li>
+      </ul>
+    </div>
+    @endif
   </nav>
   <div class="container bg-white pt-3">
     @yield('content')
