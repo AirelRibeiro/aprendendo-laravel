@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\WordsController;
 use Illuminate\Support\Facades\Route;
 
